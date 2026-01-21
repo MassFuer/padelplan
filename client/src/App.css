@@ -1,0 +1,67 @@
+body {
+  background-color: rgb(2, 39, 2);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: rgb(5, 85, 85);
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .company {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 10px;
+}
+nav img {
+  height: 80%;
+}
+main {
+  min-height: 70vh;
+  padding: 10px;
+}
+footer {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: rgb(5, 85, 85);
+  padding: 10px;
+}
+a {
+  text-decoration: none;
+  margin: 0 5px;
+  color: lightgray;
+}
+.active {
+  color: lightgray;
+  background-color: rgb(8, 58, 58);
+  border: 1px solid white;
+  padding: 2px 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(5, 85, 85);
+  padding: 10px;
+}
+label {
+  margin: 5px;
+}
+.error {
+  color: red;
+}
+.profile-picture {
+  width: 40%;
+}
