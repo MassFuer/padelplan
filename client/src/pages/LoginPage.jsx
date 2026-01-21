@@ -3,13 +3,14 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
-const Login = () => {
+const LoginPage = () => {
   //three states that are connected to the three inputs to make 'controlled' components
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const nav = useNavigate();
   const { authenticateUser } = useContext(AuthContext);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -61,4 +62,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default LoginPage;

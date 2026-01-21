@@ -1,0 +1,37 @@
+footer {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20vh;
+  background-color: rgb(5, 85, 85);
+  padding: 10px;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 1em;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+  gap: 10px;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 0.9em;
+}

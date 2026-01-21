@@ -1,0 +1,18 @@
+.homepage {
+  color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  margin: 20px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.weather {
+  margin: 20px;
+  font-size: 1em;
+}
