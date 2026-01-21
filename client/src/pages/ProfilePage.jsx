@@ -1,10 +1,12 @@
 import "./ProfilePage.css";
 import { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../contexts/AuthContext";
 
 const ProfilePage = () => {
   const { currentUser, authenticateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [edit, setEdit] = useState(false);
   const [formData, setFormData] = useState({
     username: currentUser?.username || "",
@@ -94,7 +96,10 @@ const ProfilePage = () => {
           </div>
 
           {currentUser.padelClub && currentUser.padelClub.length > 0 && (
-            <div className="profile-info-item">
+            <div 
+              className="profile-info-item clickable"
+              onClick={() => navigate(`/clubs/${currentUser.padelClub[0]._id}`)}
+            >
               <label>Favorite Club</label>
               <p>{currentUser.padelClub[0]?.name || "Not selected"}</p>
             </div>

@@ -15,7 +15,10 @@ const Navbar = () => {
       </NavLink>
       <NavLink to="/clubs">Clubs around the world</NavLink>
       {isLoggedIn ? (
-        <button onClick={handleLogout}>Logout</button>
+        <div className="controls">
+          <NavLink to="/profile">My Profile</NavLink>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
       ) : (
         <section>
           <NavLink to="/login">Login</NavLink>

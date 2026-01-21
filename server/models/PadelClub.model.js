@@ -12,9 +12,8 @@ const padelClubSchema = new Schema({
   },
   padelCourts: [
     {
-      title: { type: String, required: true },
-      type: { type: String },
-      courtNumber: { type: Number, required: true },
+      type: Schema.Types.ObjectId,
+      ref: "PadelCourt",
     },
   ],
   numberOfCourts: { type: Number },

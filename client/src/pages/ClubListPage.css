@@ -1,0 +1,37 @@
+.club-list-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.club-list-page img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.club-card {
+  background: rgb(5, 43, 46);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.padel-court {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(21, 76, 80);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+.padel-court:hover {
+  transform: translateY(-5px);
+}
+.padel-court p {
+    margin: 0;
+}
