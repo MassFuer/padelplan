@@ -11,13 +11,12 @@ const User = require("../models/User.model");
 // Require necessary (isAuthenticated) middleware in order to control access to specific routes
 const { isAuthenticated } = require("../middleware/jwt.middleware.js");
 
-
 //route to /signup a new user
 router.post("/signup", async (req, res) => {
   //destructuring  the req.body
   const { email, password } = req.body;
   try {
-    const userAlreadyInDB = await UserModel.findOne({ email });
+    const userAlreadyInDB = await User.findOne({ email });
     if (userAlreadyInDB) {
       res.status(403).json({ errorMessage: "Invalid Credentials" });
     } else {
@@ -27,7 +26,7 @@ router.post("/signup", async (req, res) => {
         ...req.body,
         password: theHashedPassword,
       };
-      const createdUser = await UserModel.create(hashedUser);
+      const createdUser = await User.create(hashedUser);
       res.status(201).json(createdUser);
     }
   } catch (error) {
@@ -40,7 +39,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const userAlreadyInDB = await UserModel.findOne({ email });
+    const userAlreadyInDB = await User.findOne({ email });
     if (!userAlreadyInDB) {
       res.status(403).json({ errorMessage: "Invalid Credentials" });
     } else {
@@ -70,9 +69,40 @@ router.post("/login", async (req, res) => {
 
 //this route verifies the auth token
 router.get("/verify", isAuthenticated, async (req, res) => {
-  const currentLoggedInUser = await UserModel.findById(req.payload._id).select(
-    "-password -email",
-  );
+  const currentLoggedInUser = await User.findById(req.payload._id)
+    .select("-password")
+    .populate("padelClub");
   res.status(200).json({ message: "Token is valid :) ", currentLoggedInUser });
 });
+
+//route to update user profile
+router.put("/profile", isAuthenticated, async (req, res) => {
+  try {
+    const userId = req.payload._id;
+    const { username, profilePicture, padelClub } = req.body;
+
+    const updateData = { username, profilePicture };
+
+    // Handle padelClub - convert to array if provided
+    if (padelClub) {
+      updateData.padelClub = [padelClub];
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+      runValidators: true,
+    })
+      .select("-password")
+      .populate("padelClub");
+
+    res.status(200).json({
+      message: "Profile updated successfully",
+      updatedUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ errorMessage: "Error updating profile" });
+  }
+});
+
 module.exports = router;

@@ -59,7 +59,7 @@ const SignupPage = () => {
           />
         </label>
         <label>
-          Age:
+          Date of Birth:
           <input type="date" />
         </label>
         {/* show the error if there is one  */}

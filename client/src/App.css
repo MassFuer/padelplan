@@ -4,24 +4,7 @@ body {
   margin: 0;
   padding: 0;
 }
-nav {
-  background-color: rgb(5, 85, 85);
-  height: 10vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-nav .company {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-weight: bold;
-  margin-left: 10px;
-}
-nav img {
-  height: 80%;
-}
+
 main {
   min-height: 70vh;
   padding: 10px;

@@ -10,14 +10,14 @@ const padelClubSchema = new Schema({
     default:
       "https://plus.unsplash.com/premium_photo-1748218891225-fb810c4c0db9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0JTIwdXNlciUyMHByb2ZpbGUlMjBwbGFjZWhvbGRlcnxlbnwwfHwwfHx8MA%3D%3D",
   },
-  padelCourt: [
+  padelCourts: [
     {
       title: { type: String, required: true },
       type: { type: String },
       courtNumber: { type: Number, required: true },
     },
   ],
-  numberOfCourts: { type: Number, required: true },
+  numberOfCourts: { type: Number },
   openHours: { type: Date },
   owner: { type: Schema.Types.ObjectId, ref: "User", required: true },
 });
